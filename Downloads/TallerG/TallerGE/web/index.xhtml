@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Informacion de Materias</title>
+    </h:head>
+    <h:body>
+        <h1>Informacion</h1>
+        <h:form>
+            <p:panelGrid columns="3">
+                <h:outputLabel for="txtAsignatura">Asignatura</h:outputLabel>
+                <h:inputText id="txtAsignatura" value="#{materiasB.asignatura}" required="true">Ingrese Asignatura:</h:inputText>
+                <h:message for="txtAsignatura"/>
+                
+                <h:outputLabel for="ilDocentes">Docentes</h:outputLabel>
+                <h:selectManyCheckbox id="ilDocentes" label="Seleccione un Docente:" value="#{materiasB.docentesseleccionados}">
+                    <f:selectItem itemLabel="Ernesto Loján" itemValue="Ernesto Loján"/>
+                    <f:selectItem itemLabel="Maria Jose Trujillo" itemValue="Maria Jose Trujillo"/>
+                    <f:selectItem itemLabel="Mariuxi Topanta" itemValue="Mariuxi Topanta"/>
+                </h:selectManyCheckbox>
+                <h:message for="ilDocentes"/>
+                
+                <h:outputLabel for="ilCarrera">Carreras</h:outputLabel>
+                <h:selectManyCheckbox id="ilCarrera" label="seleccione su carrera:" value="#{materiasB.carreraseleccionadas}">
+                    <f:selectItem itemLabel="Medicina" itemValue="Medicina"/>
+                    <f:selectItem itemLabel="Medicina veterinaria" itemValue="Medicina veterinaria"/>
+                    <f:selectItem itemLabel="Ingenieria en sistemas" itemValue="Ingenieria en sistemas"/>
+                </h:selectManyCheckbox>
+                <h:message for="ilCarrera"/>
+                
+                <h:outputLabel for="cbCiclo">Combo</h:outputLabel>
+                <h:selectOneMenu id="cbCiclo" label="Ciclo: " value="#{materiasB.ciclo}">
+                    <f:selectItem itemLabel="CICLO I" itemValue="CICLO I"/>
+                    <f:selectItem itemLabel="CICLO II" itemValue="CICLO II"/>
+                    <f:selectItem itemLabel="CICLO III" itemValue="CICLO III"/>
+                </h:selectOneMenu>
+                <h:message for="cbCiclo"/>
+                
+                <h:commandButton value="Consultar" action="#{materiasB.consultar()}"/>
+            </p:panelGrid>
+            
+        </h:form>
+        
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    </h:body>
+</html>
+
